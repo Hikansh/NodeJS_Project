@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1.display-3 #{title}
+  form(method='POST',action='/articles/edit/'+article._id)
+    .form-group
+      label Title:
+      input.form-control(name='title',type='text',required,value=article.title)  
+    br      
+    .form-group
+        label Body:
+        textarea.form-control(name='body',type='text',required) #{article.body}
+    br      
+    input.btn.btn-primary(type='submit',value='Submit')                  

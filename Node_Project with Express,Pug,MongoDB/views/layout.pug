@@ -1,0 +1,45 @@
+doctype html
+html
+  head
+    title Hello World
+    link(rel='stylesheet',href='bower_components/bootstrap/dist/css/bootstrap.css')
+    link(rel='stylesheet',href='/css/style.css')  
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css', integrity='sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ', crossorigin='anonymous')  
+  body
+    nav.navbar.navbar-inverse.navbar-toggleable-md.bg-inverse
+      button.navbar-toggler.navbar-toggler-right(type='button',data-target='#mynav',data-toggle='collapse')
+        span.navbar-toggler-icon
+      a.navbar-brand(href='/') Articles
+      div.collapse.navbar-collapse#mynav
+        ul.mr-auto.navbar-nav
+          if user
+            li.nav-item
+              a.nav-link(href='/articles/add') Add Articles
+          li.nav-item
+            a.nav-link(href='/') Show Articles
+        ul.ml-auto.navbar-nav
+          if user
+            li.nav-item
+               a.nav-link(href='/users/logout') Logout
+          else
+            li.nav-item
+              a.nav-link(href='/users/register') Register
+            li.nav-item
+              a.nav-link(href='/users/login') Login      
+    .container.mt-3
+      != messages('messages', locals)
+      if errors
+        each error,i in errors
+          div(class='alert alert-danger') #{error.msg}
+      block content
+      br
+      hr
+      footer
+        p.lead copyright &copy; Hikansh Kapoor
+        
+  script(src='bower_components/jquery/dist/jquery.js')      
+  script(src='bower_components/bootstrap/dist/js/bootstrap.js')
+  script(src="https://code.jquery.com/jquery-3.3.1.js",integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=",crossorigin="anonymous")
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js', integrity='sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb', crossorigin='anonymous')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js', integrity='sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn', crossorigin='anonymous')      
+  script(src='/js/main.js')

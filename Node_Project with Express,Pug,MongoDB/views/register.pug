@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1.display-3 Register:-
+  form(method='POST',action='/users/register')
+    .form-group
+      label Name:
+      input.form-control(name='name',type='text',required)   
+    .form-group
+        label Email:
+        input.form-control(name='email',type='text',required)
+    .form-group
+        label username:
+        input.form-control(name='username',type='text',required)
+    .form-group
+        label Password:
+        input.form-control(name='password',type='password',required)
+    .form-group
+        label Confirm Password:
+        input.form-control(name='password2',type='password',required)
+    br        
+    input.btn.btn-primary(type='submit',value='Submit')                  
